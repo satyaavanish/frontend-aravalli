@@ -3,11 +3,9 @@ import axios from "axios";
 import L from "leaflet";
 import "leaflet/dist/leaflet.css";
 import "./App.css";
-
 import {
   FiMap,
   FiAlertTriangle,
-  FiFeather, 
   FiRefreshCw,
   FiTrendingUp,
   FiTrendingDown,
@@ -17,13 +15,11 @@ import {
   FiChevronUp,
   FiChevronRight,
   FiBarChart2,
-  FiActivity,
-  FiCpu
+  FiActivity
 } from "react-icons/fi";
 
-import { WiNightAltCloudy } from "react-icons/wi";
-import { FaCity, FaLeaf, FaIndustry, FaMapMarkedAlt, FaChartLine, FaMountain, FaTree, FaHardHat } from "react-icons/fa";
-import { GiTreeBranch, GiFactory, GiMining, GiFarmTractor, GiMountains } from "react-icons/gi";
+import { FaCity, FaLeaf, FaMapMarkedAlt, FaChartLine } from "react-icons/fa";
+import { GiTreeBranch, GiFactory, GiMining } from "react-icons/gi";
 import { MdOutlineAgriculture, MdOutlineConstruction } from "react-icons/md";
 
 // Activity Type Detection Function
@@ -233,7 +229,7 @@ useEffect(() => {
     setSelected(null);
 
     try {
-      const response = await axios.get("http://127.0.0.1:8000/analyze");
+      const response = await axios.get("https://aravalli-intelligence.onrender.com/analyze");
       const anomalies = response?.data?.data || [];
       setAnomalyData(anomalies);
       setFilteredData(anomalies);
@@ -339,13 +335,7 @@ useEffect(() => {
     `;
   };
 
-  const getActivityIcon = (activity) => {
-    switch(activity.primary) {
-      case 'NATURAL': return <FaLeaf className="icon natural" />;
-      case 'MAN_MADE': return <GiFactory className="icon manmade" />;
-      default: return <FiActivity className="icon mixed" />;
-    }
-  };
+ 
 
   return (
     <div className="app">
