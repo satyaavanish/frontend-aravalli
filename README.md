@@ -1,70 +1,256 @@
-# Getting Started with Create React App
+**Aravalli Intelligence
+AI-Powered Environmental Change Detection System
+📌 Overview**
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Aravalli Intelligence is a real-time environmental monitoring system that detects and classifies ecological changes across the Aravalli Range using satellite data from Google Earth Engine.
 
-## Available Scripts
+The system:
 
-In the project directory, you can run:
+Fetches latest satellite datasets (NDVI & Nightlight)
 
-### `npm start`
+Compares recent vs previous time periods
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Detects statistical anomalies
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Classifies changes into:
 
-### `npm test`
+🌿 Natural
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+🏗 Man-Made
 
-### `npm run build`
+🔄 Mixed Activity
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Displays results on an interactive dashboard map
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+**🎯 Project Objective**
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+To automatically detect:
 
-### `npm run eject`
+Vegetation loss or growth
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Urban expansion
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Infrastructure development
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+Industrial activity
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+Agricultural shifts
 
-## Learn More
+Using satellite data and statistical comparison techniques.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+**🏗 System Architecture**
+Google Earth Engine
+        ↓
+FastAPI Backend (Python)
+        ↓
+Statistical Anomaly Detection
+        ↓
+React Frontend Dashboard
+        ↓
+Leaflet Interactive Map
+**🧠 Technologies Used**
+🔹 Backend
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Python
 
-### Code Splitting
+FastAPI
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+Uvicorn
 
-### Analyzing the Bundle Size
+Google Earth Engine API
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+NumPy
 
-### Making a Progressive Web App
+Service Account Authentication
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+🔹 Frontend
 
-### Advanced Configuration
+React.js
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+Leaflet.js
 
-### Deployment
+Axios
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+React Icons
 
-### `npm run build` fails to minify
+Custom Dashboard UI
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+🔹 Deployment
+
+Backend → Render
+
+Frontend → Vercel
+
+**🌎 Data Sources**
+
+Sentinel-2 Satellite (NDVI)
+
+VIIRS Nightlight Data
+
+Google Earth Engine datasets
+
+⚙️ How It Works
+1️⃣ Data Fetching
+
+Backend connects to Google Earth Engine using Service Account credentials.
+
+2️⃣ Time Comparison
+
+System compares:
+
+Latest 90 days
+
+Previous 90 days
+
+3️⃣ Change Detection
+
+Calculates:
+
+NDVI Difference
+
+Nightlight Difference
+
+4️⃣ Statistical Anomaly Detection
+
+Detects significant deviations using threshold-based statistical logic.
+
+5️⃣ Activity Classification
+
+Rules applied:
+
+Condition	Classification
+NDVI decrease + stable light	Natural vegetation decline
+NDVI increase	Natural growth
+Light increase + vegetation loss	Urban expansion
+Large light increase	Major development
+Mixed signals	Mixed activity
+
+6️⃣ Visualization
+
+Displayed as:
+
+Interactive map markers
+
+Activity summary cards
+
+Statistical comparison bars
+
+Time comparison details
+
+🚀 Running Locally
+🔹 Backend Setup
+cd backend
+python -m venv venv
+
+Activate environment:
+
+Windows
+
+venv\Scripts\activate
+
+Mac/Linux
+
+source venv/bin/activate
+
+Install dependencies:
+
+pip install -r requirements.txt
+
+Set environment variables:
+
+EE_SERVICE_ACCOUNT=your_service_account_email
+EE_PRIVATE_KEY=your_private_key
+
+Run backend:
+
+uvicorn main:app --reload
+
+Backend runs at:
+
+http://127.0.0.1:8000
+
+Test endpoint:
+
+http://127.0.0.1:8000/analyze
+🔹 Frontend Setup
+cd frontend
+npm install
+npm start
+
+Frontend runs at:
+
+http://localhost:3000
+
+📊 Features
+
+✔ Real-time anomaly detection
+✔ 90-day rolling comparison
+✔ NDVI and Nightlight analysis
+✔ Interactive Leaflet map
+✔ Activity filtering
+✔ Detailed analytics panel
+✔ Live data refresh
+✔ Full-stack deployment
+
+📦 Example API Response
+{
+  "status": "success",
+  "total_anomalies": 10,
+  "data": [
+    {
+      "lat": 26.689133627645,
+      "lon": 75.3125,
+      "delta_ndvi": 0.176747985108274,
+      "delta_nightlight": 0.0101516413917515,
+      "ndvi_latest": 0.416289088858157,
+      "ndvi_previous": 0.239541103749883,
+      "nightlight_latest": 1.47476901555971,
+      "nightlight_previous": 1.46461737416796,
+      "latest_start": "2025-11-29",
+      "latest_end": "2026-02-27",
+      "previous_start": "2025-08-31",
+      "previous_end": "2025-11-29",
+      "comparison_days": 90,
+      "type": "STATISTICAL_ANOMALY"
+    },
+  }
+**🔐 Security
+**
+Service account authentication
+
+Private keys stored as environment variables
+
+No credentials exposed in frontend
+
+🔮 Future Enhancements
+
+AI/ML based classification model
+
+PDF report generation
+
+Heatmap visualization
+
+Historical trend analytics
+
+Multi-region expansion
+
+Automated alert system
+
+ 
+**
+📜 Conclusion
+**
+Aravalli Intelligence demonstrates how satellite data, statistical analysis, and full-stack development can be integrated to build a real-time environmental monitoring platform.
+
+The project showcases:
+
+Remote sensing integration
+
+Backend data processing
+
+Frontend geospatial visualization
+
+Deployment pipeline management
+
+Applied AI-based classification
+ 
