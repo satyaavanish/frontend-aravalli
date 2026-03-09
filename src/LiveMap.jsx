@@ -11,7 +11,7 @@ const LiveMap = ({ data, loading }) => {
   const heatRef = useRef(null);
   const [selectedLocation, setSelectedLocation] = useState(null);
   const [mapReady, setMapReady] = useState(false);
-  const [globalDateRange, setGlobalDateRange] = useState(null);
+  const [, setGlobalDateRange] = useState(null);
 
   // Get global date range from first item with date_windows
   useEffect(() => {

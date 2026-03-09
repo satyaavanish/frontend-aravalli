@@ -1,10 +1,17 @@
 // DataInsights.jsx - Enhanced version with comprehensive analytics
 import React, { useState, useMemo } from 'react';
-import { 
-  BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, 
-  PieChart, Pie, Cell, LineChart, Line, AreaChart, Area, ScatterChart, Scatter,
-  RadarChart, Radar, PolarGrid, PolarAngleAxis, PolarRadiusAxis, Legend
-} from 'recharts';
+import {
+  LineChart,
+  Line,
+  AreaChart,
+  Area,
+  RadarChart,
+  Radar,
+  PolarGrid,
+  PolarAngleAxis,
+  PolarRadiusAxis,
+  Legend
+} from "recharts";
 
 const DataInsights = ({ data, loading }) => {
   const [activeTab, setActiveTab] = useState('overview');
