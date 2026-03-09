@@ -1,6 +1,20 @@
-// DataInsights.jsx - Enhanced version with comprehensive analytics
+
+/* eslint-disable no-unused-vars */
 import React, { useState, useMemo } from 'react';
 import {
+  ResponsiveContainer,
+  BarChart,
+  Bar,
+  PieChart,
+  Pie,
+  Cell,
+  ScatterChart,
+  Scatter,
+  CartesianGrid,
+  XAxis,
+  YAxis,
+  Tooltip,
+  Legend,
   LineChart,
   Line,
   AreaChart,
@@ -9,8 +23,7 @@ import {
   Radar,
   PolarGrid,
   PolarAngleAxis,
-  PolarRadiusAxis,
-  Legend
+  PolarRadiusAxis
 } from "recharts";
 
 const DataInsights = ({ data, loading }) => {
